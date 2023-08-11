@@ -14,7 +14,7 @@ spec:
     image: nginx
     imagePullPolicy: IfNotPresent
 
-
+---
 
 
 apiVersion: v1
