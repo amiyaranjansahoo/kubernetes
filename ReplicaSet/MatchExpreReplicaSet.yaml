@@ -1,0 +1,20 @@
+kind: ReplicaSet                                    
+apiVersion: apps/v1                            
+metadata:
+  name: myrs
+spec:
+  replicas: 2  
+  selector:                  
+    matchExpressions:        # these must match the labels
+      - {key: purpose, operator: In, values: [learning, practise , reseacrh]}
+      - {key: env, operator: NotIn, values: [production]}
+  template:      
+    metadata:
+      name: rspod
+      labels:              
+        env: production
+    spec:
+     containers:
+       - name: c00
+         image: ubuntu
+         command: ["/bin/bash", "-c", "while true; do echo welcome to k8s; sleep 5 ; done"]
