@@ -1,0 +1,18 @@
+kind: ReplicationController               
+apiVersion: v1
+metadata:
+  name: myreplica
+spec:
+  replicas: 2            
+  selector:        
+    envt: test                             
+  template:                
+    metadata:
+      name: rcpod
+      labels:            
+        envt: test
+    spec:
+     containers:
+       - name: c00
+         image: ubuntu
+         command: ["/bin/bash", "-c", "while true; do echo welcome to k8s; sleep 2 ; done"]
