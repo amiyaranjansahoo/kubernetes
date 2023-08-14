@@ -1,0 +1,19 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      envt: dev
+  template:
+    metadata:
+      name: testpod
+      labels:
+        envt: dev
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        command: ["/bin/bash", "-c", "while true; do echo welcome to k8s; sleep 5 ; done"]
