@@ -19,4 +19,9 @@
 •	Pause the deployment to apply multiple fixes to its PodTemplateSpec and then name it to a new rollout
 •	Clean-up the older replicaSet which is not required anymore
 ```
-
+### Useful commands
+```sh
+kubectl decribe deploy mydeployment
+kubectl scale --replicas=1 deploy mydeployment # To scale up or scale down
+Kubectl exec <pod_name> -it -- /bin/ # Accessing the pods
+```
