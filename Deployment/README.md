@@ -23,5 +23,5 @@
 ```sh
 kubectl decribe deploy mydeployment
 kubectl scale --replicas=1 deploy mydeployment # To scale up or scale down
-Kubectl exec <pod_name> -it -- /bin/bash # Accessing the pods
+Kubectl exec <pod_name> -it -- /bin/bash # Accessing the pod container
 ```
