@@ -13,7 +13,6 @@
 ### Deployment Use Case
 ```sh
 •	Create a deployment to rollout a replicaSet.
-•	Declare the new state of the pods
 •	Rollback to an earlier deployment revision
 •	Scale up the deployment to facilitates more load
 •	Pause the deployment to apply multiple fixes to its PodTemplateSpec and then name it to a new rollout
