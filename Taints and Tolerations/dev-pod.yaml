@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: dev-pod
   labels:
-    app: busybox
+    app: ubuntu
 spec:
   containers:
   - name: ubuntu
