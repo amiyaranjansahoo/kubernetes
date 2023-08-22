@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dev-pod
+  labels:
+    app: busybox
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu
+    command: ["/bin/bash", "-c", "while true; do echo Welcome to k8s; sleep 5 ; done"]
