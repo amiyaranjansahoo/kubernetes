@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prod
+  template:
+    metadata:
+      labels:
+        app: prod
+    spec:
+      containers:
+      - args:
+        - sleep
+        - "60"
+        image: ubuntu
+        name: main
+      tolerations:
+      - key: node-type
+        operator: Equal
+        value: prod
+        effect: NoSchedule
