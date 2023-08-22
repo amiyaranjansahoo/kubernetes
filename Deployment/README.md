@@ -36,3 +36,5 @@ kubectl rollout history deployment <deployment name>
 ```sh
 kubectl rollout undo deployment <deployment name>
 ```
+### Deployment Rollback to a specific version
+kubectl rollout undo deployment <deployment name> --to-revision=1
