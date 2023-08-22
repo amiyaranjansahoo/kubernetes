@@ -20,7 +20,19 @@
 ```
 ### Deployment commands
 ```sh
-kubectl decribe deploy mydeployment
-kubectl scale --replicas=1 deploy mydeployment # To scale up or scale down
+kubectl decribe deploy <deployment name>
+kubectl scale --replicas=1 deploy <deployment name> # To scale up or scale down
 Kubectl exec <pod_name> -it -- /bin/bash # Accessing the pod container
+```
+### Deployment Rollout Status
+```sh
+kubectl rollout status deployment <deployment name>
+```
+###  Deployment history
+```sh
+kubectl rollout history deployment <deployment name>
+```
+### Deployment Rollback
+```sh
+kubectl rollout undo deployment <deployment name>
 ```
