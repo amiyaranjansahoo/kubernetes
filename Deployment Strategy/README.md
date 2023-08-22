@@ -18,3 +18,11 @@ Below are different types of deployment stragey
 •	Canary deployment: It uses a progressive delivery approach, with one version of the application serving most users, and another,
         newer version serving a small pool of test users. The test deployment is rolled out to more users if it is successful.
 ```
+### Recreate Deployment
+```sh
+•	All existing Pods are killed before new ones are created
+•	This will only guarantee Pod termination before new pod creation
+•	Best for development environment
+•	If you upgrade a Deployment, all Pods of the old revision will be terminated immediately. 
+•	Successful removal is awaited before any Pod of the new revision is created.
+```
