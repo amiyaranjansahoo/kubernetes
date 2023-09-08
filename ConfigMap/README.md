@@ -19,6 +19,7 @@ spec:
 kubectl create configmap dbdetails --from_literal=database=mongodb
 kubectl create configmap dbdetails --from_literal=database=mongodb --from_literal=database_uri=mongodb://localhost:27017
 kubectl create configmap dbdetails --from-file=input.txt
+kubectl exec testpod -it -- /bin/bash
 
 kind: ConfigMap 
 apiVersion: v1 
