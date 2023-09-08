@@ -1,23 +1,21 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: prod
+   name: prod
 spec:
-  replicas: 1
-  selector:
+   replicas: 1
+   selector:     
     matchLabels:
-      app: prod
-  template:
-    metadata:
-      labels:
-        app: prod
-    spec:
+     app: prod
+   template:
+     metadata:
+       labels:
+         app: prod
+     spec:
       containers:
-      - args:
-        - sleep
-        - "60"
-        image: ubuntu
-        name: main
+        - name: c00
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo welcome to k8s Deployment; sleep 5; done"]
       tolerations:
       - key: node-type
         operator: Equal
