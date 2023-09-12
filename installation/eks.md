@@ -156,5 +156,5 @@ aws eks update-kubeconfig --name dev --region us-east-1
 ```sh
 In the CLI, delete everything:
 
-eksctl delete cluster dev
+eksctl delete cluster dev # Update /home/ec2-user/.kube
 ```
