@@ -147,8 +147,10 @@ In the CLI, check the cluster:
 
 eksctl get cluster
 Enable it to connect to our cluster:
-
 aws eks update-kubeconfig --name dev --region us-east-1
+
+Get the nodegroup:
+eksctl get nodegroup --cluster <cluster name>
 ```
 
 ### Delete Your EKS Cluster
@@ -157,4 +159,5 @@ aws eks update-kubeconfig --name dev --region us-east-1
 In the CLI, delete everything:
 
 eksctl delete cluster dev # Update /home/ec2-user/.kube
+eksctl delete cluster dev --region us-east-1
 ```
