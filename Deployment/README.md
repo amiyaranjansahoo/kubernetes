@@ -32,6 +32,10 @@ kubectl rollout status deployment <deployment name>
 ```sh
 kubectl rollout history deployment <deployment name>
 ```
+### To add a change cause
+```sh
+kubectl annotate deployment/mydeployments kubernetes.io/change-cause="update image version from v1 to v2"
+```
 ### Deployment Rollback
 ```sh
 kubectl rollout undo deployment <deployment name>
