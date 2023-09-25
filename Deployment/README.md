@@ -40,5 +40,11 @@ kubectl annotate deployment/mydeployments kubernetes.io/change-cause="update ima
 ```sh
 kubectl rollout undo deployment <deployment name>
 ```
+### To see the details of each revision
+```sh
+kubectl rollout history deployment/mydeployments --revision=3
+kubectl rollout history deployment/mydeployments --revision=2
+kubectl rollout history deployment/mydeployments --revision=1
+```
 ### Deployment Rollback to a specific version
 kubectl rollout undo deployment <deployment name> --to-revision=1
