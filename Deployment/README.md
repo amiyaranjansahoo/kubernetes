@@ -32,6 +32,11 @@ kubectl rollout status deployment <deployment name>
 ```sh
 kubectl rollout history deployment <deployment name>
 ```
+### Rollout the version from v1 to v2
+```sh
+Edit the image and apply again the manifest
+kubectl set image deployment/nginx-deployment nginx=nginx:1.161
+```
 ### To add a change cause
 ```sh
 kubectl annotate deployment/mydeployments kubernetes.io/change-cause="update image version from v1 to v2"
