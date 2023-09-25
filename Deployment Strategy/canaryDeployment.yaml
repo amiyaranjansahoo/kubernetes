@@ -1,0 +1,41 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: depl
+spec:
+   replicas: 4
+   selector:     
+    matchLabels:
+     name: k8s
+   template:
+     metadata:
+       name: testpod
+       labels:
+         name: k8s
+         track: stable
+     spec:
+      containers:
+        - name: c00
+          image: centos
+          command: ["/bin/bash", "-c", "while true; do echo welcome to k8s-stable; sleep 5; done"]
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: depl-canary
+spec:
+   replicas: 1
+   selector:     
+    matchLabels:
+     name: k8s
+   template:
+     metadata:
+       name: testpod
+       labels:
+         name: k8s
+         track: canary
+     spec:
+      containers:
+        - name: c00
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo welcome to k8s-canary; sleep 5; done"]
