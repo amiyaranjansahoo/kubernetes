@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-   name: depl
+   name: depl-stable
 spec:
    replicas: 4
    selector:     
