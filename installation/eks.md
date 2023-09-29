@@ -151,6 +151,9 @@ aws eks update-kubeconfig --name dev --region us-east-1
 
 Get the nodegroup:
 eksctl get nodegroup --cluster <cluster name>
+
+Create the nodegroup:(Optional)
+eksctl create nodegroup --cluster dev --nodegroup-name standard-workers --node-type t3.medium --nodes 2 --nodes-min 1 --nodes-max 4 --managed
 ```
 
 ### Delete Your EKS Cluster
