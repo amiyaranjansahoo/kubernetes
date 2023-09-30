@@ -1,4 +1,5 @@
-
+#### Creating a PersistentVolume
+```sh
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -12,7 +13,9 @@ spec:
   awsElasticBlockStore:
     volumeID: vol-0b81f9f72ac23e37d
     fsType: ext4
----
+```
+#### Claming the Persistent Volume
+```sh
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -23,7 +26,9 @@ spec:
   resources:
     requests:
       storage: 1Gi
----
+```
+#### Deploying the application using the PVC
+```sh
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -49,3 +54,4 @@ spec:
         - name: mypd
           persistentVolumeClaim:
             claimName: myebsvolclaim
+```
