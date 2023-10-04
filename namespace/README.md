@@ -69,3 +69,4 @@ Performance—Kubernetes API provides better performance when you define namespa
 This is because the API has less items to search through when you perform specific operations.
 ```
 
+![image](https://github.com/amiyaranjansahoo/kubernetes/assets/24844782/2d93903c-c934-4194-b46a-387da97e5b85)
