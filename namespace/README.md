@@ -1,5 +1,7 @@
 
 ### What is a Kubernetes Namespace?
+![image](https://github.com/amiyaranjansahoo/kubernetes/assets/24844782/38933287-5a64-4590-9d06-88a1a7fffa7d)
+
 ```sh
 A Kubernetes namespace helps separate a cluster into logical units. It helps granularly organize, allocate,
 manage, and secure cluster resources. Here are two notable use cases for Kubernetes namespaces:
@@ -66,3 +68,4 @@ projects and ensuring each project has the resources it needs, leaving sufficien
 Performance—Kubernetes API provides better performance when you define namespaces in the cluster.
 This is because the API has less items to search through when you perform specific operations.
 ```
+
