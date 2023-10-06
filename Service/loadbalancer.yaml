@@ -31,4 +31,4 @@ spec:
     name: deployment
   type: LoadBalancer
 ---
-kammana/nodeapp:v1
+###kammana/nodeapp:v1
