@@ -16,6 +16,8 @@ spec:
       containers:
         - name: myapl
           image: amiyaranjansahoo/myapp:v1
+          ports:
+            - containerPort: 8080
 ---
 kind: Service
 apiVersion: v1
