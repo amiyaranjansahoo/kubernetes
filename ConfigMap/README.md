@@ -1,3 +1,23 @@
+### Creating pod with environment variable
+```sh
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod
+  labels:
+    envt: dev
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      env:
+        - name: database
+          value: mongodb
+        - name: database_uri
+          value: mongodb://localhost:27017
+```
 ### Creating the configmap
 ```sh
 apiVersion: v1
