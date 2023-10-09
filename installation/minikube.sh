@@ -1,3 +1,4 @@
+### Launch ec2 ubuntu t2-medium(2 CPU 4 GB RAM tested)
 #!/bin/bash
 
 # Install Docker
