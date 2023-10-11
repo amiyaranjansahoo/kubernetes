@@ -154,6 +154,49 @@ eksctl get nodegroup --cluster <cluster name>
 
 Create the nodegroup:(Optional)
 eksctl create nodegroup --cluster dev --nodegroup-name standard-workers --node-type t3.medium --nodes 2 --nodes-min 1 --nodes-max 4 --managed
+
+# Create Cluster without node group
+eksctl create cluster --name=eksdemo1 \
+--region=us-east-1 \
+--zones=us-east-1a,us-east-1b \
+--without-nodegroup
+
+# Create Cluster with node group + ssh access
+# Create Public Node Group   
+eksctl create nodegroup --cluster=eksdemo1 \
+--region=us-east-1 \
+--name=eksdemo1-ng-public1 \
+--node-type=t3.medium \
+--nodes=2 \
+--nodes-min=2 \
+--nodes-max=4 \
+--node-volume-size=20 \
+--ssh-access \
+--ssh-public-key=cg \
+--managed \
+--asg-access \
+--external-dns-access \
+--full-ecr-access \
+--appmesh-access \
+--alb-ingress-access 
+
+# Create a Cluster + managed node group + ssh access
+eksctl create cluster --name dev \
+--region us-east-1 \
+--nodegroup-name standard-workers \
+--node-type t3.medium \
+--nodes 3 --nodes-min 1 --nodes-max 4 \
+--node-volume-size 20 \
+--ssh-access \
+--ssh-public-key=cg \
+--managed \
+--asg-access \
+--external-dns-access \
+--full-ecr-access \
+--appmesh-access \
+--alb-ingress-access
+
+
 ```
 
 ### Delete Your EKS Cluster
