@@ -1,41 +1,53 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-   name: depl-stable
+   name: mydeployments-stable
 spec:
-   replicas: 4
+   replicas: 2
    selector:     
     matchLabels:
-     name: k8s
+     name: deployment
    template:
      metadata:
        name: testpod
        labels:
-         name: k8s
-         track: stable
+         name: deployment
      spec:
       containers:
-        - name: c00
-          image: centos
-          command: ["/bin/bash", "-c", "while true; do echo welcome to k8s-stable; sleep 5; done"]
+        - name: myapl
+          image: amiyaranjansahoo/myapp:v1
+          ports:
+            - containerPort: 8080
 ---
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-   name: depl-canary
+   name: mydeployments-canary
 spec:
-   replicas: 1
+   replicas: 2
    selector:     
     matchLabels:
-     name: k8s
+     name: deployment
    template:
      metadata:
        name: testpod
        labels:
-         name: k8s
-         track: canary
+         name: deployment
      spec:
       containers:
-        - name: c00
-          image: ubuntu
-          command: ["/bin/bash", "-c", "while true; do echo welcome to k8s-canary; sleep 5; done"]
+        - name: myapl
+          image: amiyaranjansahoo/myapp:v2
+          ports:
+            - containerPort: 8080
+---            
+kind: Service
+apiVersion: v1
+metadata:
+  name: demoservice
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    name: deployment
+  type: LoadBalancer
