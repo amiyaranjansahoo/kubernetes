@@ -26,7 +26,7 @@ aws eks describe-cluster --name dev --query "cluster.endpoint"
 ### Install argocd CLI
 ```sh
 # Login as root
-curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 chmod +x /usr/local/bin/argocd
 
 # Login to argocd 
