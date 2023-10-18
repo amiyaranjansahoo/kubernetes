@@ -15,7 +15,7 @@ kubectl expose deploy/argocd-server --type=NodePort --name=arg-svc -n argocd
 kubectl expose deploy/argocd-server --type=LoadBalancer --name=argcd-svc -n argocd
 
 # Fetching the intial admin password
-kubectl get secret
+kubectl get secret -n argocd
 kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
 echo "" | base64 --decode
 ```
