@@ -161,7 +161,7 @@ eksctl create cluster --name=eksdemo1 \
 --zones=us-east-1a,us-east-1b \
 --without-nodegroup
 
-# Create Cluster with node group + ssh access
+# Create a node group + ssh access
 # Create Public Node Group   
 eksctl create nodegroup --cluster=eksdemo1 \
 --region=us-east-1 \
