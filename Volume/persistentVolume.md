@@ -1,31 +1,25 @@
-#### Creating a PersistentVolume
+#### Creating a Storage
 ```sh
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: myebsvol
-spec:
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
-  awsElasticBlockStore:
-    volumeID: vol-0b81f9f72ac23e37d
-    fsType: ext4
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata: 
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
 ```
-#### Claming the Persistent Volume
+#### Claming the Persistent Volume claim
 ```sh
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: myebsvolclaim
-spec:
+  name: ebs-mysql-pv-claim
+spec: 
   accessModes:
     - ReadWriteOnce
-  resources:
+  storageClassName: ebs-sc
+  resources: 
     requests:
-      storage: 1Gi
+      storage: 4Gi
 ```
 #### Deploying the application using the PVC
 ```sh
@@ -35,7 +29,7 @@ metadata:
   name: pvdeploy
 spec:
   replicas: 1
-  selector:
+  selector:      # tells the controller which pods to watch/belong to
     matchLabels:
      app: mypv
   template:
@@ -53,5 +47,5 @@ spec:
       volumes:
         - name: mypd
           persistentVolumeClaim:
-            claimName: myebsvolclaim
+            claimName: ebs-mysql-pv-claim
 ```
