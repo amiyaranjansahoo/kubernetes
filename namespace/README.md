@@ -42,6 +42,10 @@ resources and limit access to specific users.
 ```sh
 kubectl create ns mynamespace
 ```
+#### How do you switch between Kubernetes namespaces?
+```sh
+kubectl config set-context --current --namespace=dev
+```
 
 #### When Should You Use Multiple Kubernetes Namespaces?
 ```sh
