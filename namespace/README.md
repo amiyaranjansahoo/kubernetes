@@ -27,11 +27,16 @@ Kubernetes system namespaces and custom namespaces.
 ```sh
 Here are the four default namespaces Kubernetes creates automatically:
 
-default—a default space for objects that do not have a specified namespace.
-kube-system—a default space for Kubernetes system objects, such as kube-dns and kube-proxy, and add-ons
-providing cluster-level features, such as web UI dashboards, ingresses, and cluster-level logging.
-kube-public—a default space for resources available to all users without authentication.
-kube-node-lease—a default space for objects related to cluster scaling.
+default-The default namespace for objects with no other namespace
+kube-node-lease This namespace holds Lease objects associated with each node.
+Node leases allow the kubelet to send heartbeats so that the control plane
+can detect node failure.
+kube-public This namespace is created automatically and is readable by all
+users (including those not authenticated). This namespace is mostly reserved
+for cluster usage, in case that some resources should be visible and readable
+publicly throughout the whole cluster. The public aspect of this namespace is only a convention,
+not a requirement.
+kube-system The namespace for objects created by the Kubernetes system
 ```
 #### Custom Kubernetes namespaces
 ```sh
@@ -41,6 +46,13 @@ resources and limit access to specific users.
 #### Here is how to create a namespace using kubectl:
 ```sh
 kubectl create ns mynamespace
+```
+#### Create namespace using the declarative approach
+```sh
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: <insert-namespace-name-here>
 ```
 #### How do you switch between Kubernetes namespaces?
 ```sh
