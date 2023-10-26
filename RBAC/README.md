@@ -41,4 +41,5 @@ spec:
 kubectl describe po mypod # Service Account:  default
 ````
 
+![image](https://github.com/amiyaranjansahoo/kubernetes/assets/24844782/f2cd8d6d-29ba-46d8-8eba-c7698ac0d364)
 
