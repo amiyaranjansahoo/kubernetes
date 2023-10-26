@@ -36,4 +36,9 @@ spec:
       ports:
         - containerPort: 80
 ````
+#### Validate the default SA using the kubectl command
+```sh
+kubectl describe po mypod # Service Account:  default
+````
+
 
