@@ -15,7 +15,8 @@
 ```
 ### Add access to the worker node IAM role to push logs to the cloudwatch
 ```sh
-Go to Services -> EC2 -> Worker Node EC2 Instance -> IAM Role -> Click on that role => Add the CloudWatchAgentServerPolicy 
+Go to Services -> EC2 -> Worker Node EC2 Instance -> IAM Role -> Click on that role
+=> Add the CloudWatchAgentServerPolicy 
 ````
 ### How to Deploy
 ```sh
