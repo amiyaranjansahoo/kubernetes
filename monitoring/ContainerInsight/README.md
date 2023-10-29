@@ -1,4 +1,18 @@
 ### What is Container Insight
+```sh
+1. A fully managed observability service for monitoring, troubleshooting and 
+   alarming on our containerized applications.
+2. Container Insights to collect, aggregate, and summarize metrics and logs from 
+   our containerized applications and microservices.
+3. The metrics include utilization for resources such as CPU, memory, disk, and network. 
+4. It also provides diagnostic information, such as container restart failures, to help 
+   us isolate issues and resolve them quickly. 
+5. We can also set CloudWatch alarms on metrics that Container Insights collects.
+6. The metrics that Container Insights collects are available in CloudWatch 
+   automatic dashboards. 
+7. We can analyze and troubleshoot container performance and logs data with 
+   CloudWatch Logs Insights
+```
 
 ### How to Deploy
 ```sh
