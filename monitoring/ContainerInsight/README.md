@@ -38,7 +38,7 @@ kubectl -n amazon-cloudwatch get daemonsets
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeployment
+  name: sample-nginx-deployment
   labels:
     app: sample-nginx
 spec:
@@ -56,11 +56,18 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: "5m" 
+              memory: "5Mi"
+            limits:
+              cpu: "10m"
+              memory: "10Mi"       
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: myservice
+  name: sample-nginx-service
   labels:
     app: sample-nginx
 spec:
@@ -72,7 +79,7 @@ spec:
 ```
 ### Generate The Load
 ```sh
-kubectl run --generator=run-pod/v1 apache-bench -i --tty --rm --image=httpd -- ab -n 500000 -c 1000 http://myservice.default.svc.cluster.local/
+kubectl run --generator=run-pod/v1 apache-bench -i --tty --rm --image=httpd -- ab -n 500000 -c 1000 http://sample-nginx-service.default.svc.cluster.local/
 ```
 ### Create Graph for Avg Node CPU Utlization # /aws/containerinsights/eksdemo1/performance
 ```sh
