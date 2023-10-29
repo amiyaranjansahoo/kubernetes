@@ -90,3 +90,6 @@ STATS avg(node_cpu_utilization) as avg_node_cpu_utilization by NodeName
 ```sh
 STATS avg(number_of_container_restarts) as avg_number_of_container_restarts by PodName | SORT avg_number_of_container_restarts DESC
 ```
+
+Reference: Container Insights metrics
+https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.html
