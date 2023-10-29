@@ -13,7 +13,10 @@
 7. We can analyze and troubleshoot container performance and logs data with 
    CloudWatch Logs Insights
 ```
-
+### Add access to the worker node IAM role to push logs to the cloudwatch
+```sh
+Go to Services -> EC2 -> Worker Node EC2 Instance -> IAM Role -> Click on that role => Add the CloudWatchAgentServerPolicy 
+````
 ### How to Deploy
 ```sh
 # Template
