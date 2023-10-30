@@ -55,14 +55,7 @@ spec:
         - name: sample-nginx
           image: nginx
           ports:
-            - containerPort: 80
-          resources:
-            requests:
-              cpu: "5m" 
-              memory: "5Mi"
-            limits:
-              cpu: "10m"
-              memory: "10Mi"       
+            - containerPort: 80    
 ---
 apiVersion: v1
 kind: Service
