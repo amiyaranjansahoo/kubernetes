@@ -1,3 +1,4 @@
+```sh
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -11,3 +12,4 @@ spec:
   awsElasticBlockStore:
     volumeID:           # take the volume id and add here
     fsType: ext4
+```
