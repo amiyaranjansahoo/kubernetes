@@ -1,9 +1,25 @@
 startupProbe:
   httpGet:
     path: /healthz
-    port: liveness-port
   failureThreshold: 30
   periodSeconds: 10
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: amiyaranjansahoo/myapp:v1
+      ports:
+        - containerPort: 8080
+      startupProbe:
+        httpGet:
+          path: /
+          port: 8080
+        periodSeconds: 10          
+        failureThreshold: 10
 ---
 apiVersion: v1
 kind: Pod
