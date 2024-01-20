@@ -44,6 +44,8 @@ kubectl config set-context --current --namespace=argocd
 argocd app create myapp --repo <git repo name> --path . --revision master --dest-server <EKS cluster end point>
 --dest-namespace default
 
+# argocd app create appl --repo https://github.com/amiyaranjansahoo/argocd-test.git --path guestbook --revision main --dest-server "https://692559FE724B8F755610973B07FBC165.gr7.us-east-1.eks.amazonaws.com" --dest-namespace default
+
 # argocd app create myapp --repo https://github.com/amiyaranjansahoo/argocd-test.git --path . --revision master
 --dest-server https://05E04E5DBEC80B1A4659C5E69FBB50D0.gr7.us-east-1.eks.amazonaws.com --dest-namespace default
 example repo: https://github.com/argoproj/argocd-example-apps.git
