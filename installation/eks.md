@@ -85,7 +85,7 @@ Ensure kubectl is installed:
 kubectl version --short --client
 ```
 
-### Download eksctl:
+### Download eksctl(Linux):
 ```sh
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 
@@ -98,6 +98,22 @@ eksctl version
 See the options with eksctl:
 eksctl help
 ```
+#### Download eksctl (Windows) -> Using Git Bash: 
+```sh
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+ARCH=amd64
+PLATFORM=windows_$ARCH
+
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.zip"
+
+# (Optional) Verify checksum
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+
+unzip eksctl_$PLATFORM.zip -d $HOME/bin
+
+rm eksctl_$PLATFORM.zip
+```
+
 ### Provision an EKS Cluster
 ```sh
 Provision an EKS cluster with three worker nodes in us-east-1:
