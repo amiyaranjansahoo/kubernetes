@@ -1,4 +1,4 @@
-### Launch ec2 ubuntu t2-medium(2 CPU 4 GB RAM )
+### Launch ec2 ubuntu t2-medium(2 CPU 4 GB RAM ) - ubuntu 20.04 LTS
 #!/bin/bash
 
 # Install Docker
@@ -14,21 +14,20 @@ curl -Lo minikube https://github.com/kubernetes/minikube/releases/download/v1.24
 apt install conntrack
 
 # Install CRI-Dockerd
-git clone https://github.com/Mirantis/cri-dockerd.git
-wget https://storage.googleapis.com/golang/getgo/installer_linux
-chmod +x ./installer_linux
-./installer_linux
-source ~/.bash_profile
-cd cri-dockerd
-mkdir bin
-go build -o bin/cri-dockerd
-mkdir -p /usr/local/bin
-install -o root -g root -m 0755 bin/cri-dockerd /usr/local/bin/cri-dockerd
-cp -a packaging/systemd/* /etc/systemd/system
-sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
+wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.2.0/cri-dockerd-v0.2.0-linux-amd64.tar.gz
+tar -zxvf cri-dockerd-v0.2.0-linux-amd64.tar.gz
+sudo mv ./cri-dockerd /usr/local/bin/ 
+cri-dockerd --help
+ 
+wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.service
+wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.socket
+sudo mv cri-docker.socket cri-docker.service /etc/systemd/system/
+sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
+
 systemctl daemon-reload
 systemctl enable cri-docker.service
 systemctl enable --now cri-docker.socket
+systemctl status cri-docker.socket
 
 # Install crictl
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.24.0/crictl-v1.24.0-linux-amd64.tar.gz
