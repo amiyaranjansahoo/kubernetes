@@ -14,3 +14,31 @@ spec:
   - name: testvolume
     hostPath:
       path: /data
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployments
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: c1
+          image: centos
+          command: ["/bin/bash", "-c", "sleep 15000"]
+          volumeMounts:                  # Mount definition inside the container
+            - name: testvolume
+              mountPath: "/hostpath"          
+      volumes:                                                   
+        - name: testvolume
+          hostPath:
+            path: /data
