@@ -8,7 +8,7 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Delete # Retain - Delete - Recycle (depreciated ) 
   awsElasticBlockStore:
     volumeID:           # take the volume id and add here
     fsType: ext4
