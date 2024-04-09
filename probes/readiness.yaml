@@ -5,13 +5,13 @@ metadata:
 spec:
   containers:
     - name: nginx-container
-      image: amiyaranjansahoo/myapp:v1
+      image: nginx
       ports:
-        - containerPort: 8080
+        - containerPort: 80
       readinessProbe:
         httpGet:
           path: /
-          port: 8080
+          port: 80
 ---
 apiVersion: v1
 kind: Pod
@@ -20,10 +20,11 @@ metadata:
 spec:
   containers:
     - name: nginx-container
-      image: nginx
+      image: amiyaranjansahoo/myapp:v1
       ports:
-        - containerPort: 80
+        - containerPort: 8080
       readinessProbe:
         httpGet:
           path: /
-          port: 80
+          port: 8080
+---
