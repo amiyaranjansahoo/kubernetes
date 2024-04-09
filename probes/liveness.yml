@@ -15,3 +15,29 @@ spec:
       initialDelaySeconds: 5
       periodSeconds: 2
       timeoutSeconds: 2
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: mydeployments
+spec:
+   replicas: 2
+   selector:     
+    matchLabels:
+     name: deployment
+   template:
+     metadata:
+       name: testpod
+       labels:
+         name: deployment
+     spec:
+      containers:
+        - name: c00
+          image: ubuntu
+          command: ["/bin/sh","-c","touch /tmp/healthy; sleep 1000"]
+          livenessProbe:                                          
+            exec:
+              command: ["/bin/sh","-c","cat /tmp/healthy"]                                         
+            initialDelaySeconds: 5          
+            periodSeconds: 5                                 
+            timeoutSeconds: 30
