@@ -1,3 +1,13 @@
+## What is ConfigMap?
+```sh
+1. ConfigMaps allow you to decouple configuration artifacts from image content to keep containerized
+applications portable
+2. ConfigMaps are used to store non-sensitive data in key-value pairs, such as environment variables,
+command-line arguments, configuration files
+3. This allows you to modify configuration without rebuilding the container image.
+4. Instead of hardcoding environment variables into your container definition, you can use ConfigMaps
+to store them separately, making them easier to manage and update.
+```
 ### Creating pod with environment variable
 ```sh
 apiVersion: v1
