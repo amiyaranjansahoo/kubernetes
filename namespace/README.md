@@ -6,14 +6,6 @@
 A Kubernetes namespace helps separate a cluster into logical units. It helps granularly organize, allocate,
 manage, and secure cluster resources. Here are two notable use cases for Kubernetes namespaces:
 
-Apply policies to cluster segments—Kubernetes namespaces let you apply policies to different parts of a cluster.
-For example, you can define resource policies to limit resource consumption. You can also use container network
-interfaces (CNIs) to apply network policies that define how communication is achieved between pods in each namespace.
-Learn more about Kubernetes networking.
-Apply access controls—namespaces let you define role-based access control (RBAC). You can define a role object type
-and assign it using role binding. The role you define is applied to a namespace, and RoleBinding is applied to
-specific objects within this namespace. Using this technique can help you improve the security of your cluster.
-
 In a new cluster, Kubernetes automatically creates the following namespaces: default (for user workloads) and
 three namespaces for the Kubernetes control plane: kube-node-lease, kube-public, and kube-system.
 Kubernetes also allows admins to manually create custom namespaces.
