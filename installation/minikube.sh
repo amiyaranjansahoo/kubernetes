@@ -1,4 +1,5 @@
 ### Launch ec2 ubuntu t2-medium(2 CPU 4 GB RAM ) - ubuntu 20.04 LTS
+## Login as root => sudo su
 #!/bin/bash
 
 # Install Docker
