@@ -27,7 +27,7 @@ aws eks describe-cluster --name dev --query "cluster.endpoint"
 ```sh
 # Login as root
 sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-chmod +x /usr/local/bin/argocd
+sudo chmod +x /usr/local/bin/argocd
 
 # Login to argocd 
 argocd login <argocdip>:<port> #argocd login 3.236.82.139:32525
