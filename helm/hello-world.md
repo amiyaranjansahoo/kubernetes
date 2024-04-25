@@ -8,7 +8,7 @@ helm pull  hello-world/hello-world
 help repo list
 # Install the hello-world with release1 : 
 helm install release1 ./hello-world/
-helm install release2 hello-world/hello-world --version 0.2.0 # Otherway to install the application
+helm install release2 hello-world/hello-world --version 0.2.0 # Alternative to install the application
 kubectl get po
 # Add a NodePort service to access from outside
 ```
