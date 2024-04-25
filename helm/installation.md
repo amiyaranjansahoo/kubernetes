@@ -11,3 +11,7 @@ wget https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
 tar -xzf helm-v3.12.3-linux-amd64.tar.gz
 sudo mv ./linux-amd64/helm /usr/local/bin/
 ```
+#### How to check teh helm version
+```sh
+helm version
+```
