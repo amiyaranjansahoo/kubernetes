@@ -18,4 +18,9 @@ helm repo update
 helm list # List all release details
 helm uninstall <release name> # Uninstall a specific release
 helm delete <release name> # This also Uninstall a specific release
+# Upgrade a release, thats creates a revision
+helm upgrade <release name> [CHART]
+helm upgrade r5400 ./nginx/ # Example
+# Rollback, thats creates a revision
+helm rollback <release name> #helm rollback r5400
 ```
