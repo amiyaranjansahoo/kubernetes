@@ -17,4 +17,5 @@ helm repo add <repo name>
 helm repo update
 helm list # List all release details
 helm uninstall <release name> # Uninstall a specific release
+helm delete <release name> # This also Uninstall a specific release
 ```
