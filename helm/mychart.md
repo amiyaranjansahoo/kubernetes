@@ -1,7 +1,8 @@
 #### Values.yaml
 ```sh
-replicaCount: 2
-image: httpd
+replicaCount: 1
+image:
+  repository: nginx
 ```
 #### deployment.yaml
 ```sh
