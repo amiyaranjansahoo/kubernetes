@@ -21,8 +21,8 @@ spec:
          name: deployment
      spec:
       containers:
-        - name: apache
-          image: {{ .Values.image }}
+        - name: nginx
+          image: {{ .Values.image.repository }}
           ports:
           - containerPort: 80
 ```
