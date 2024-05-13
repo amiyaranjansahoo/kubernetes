@@ -18,6 +18,10 @@
 •	Pause the deployment to apply multiple fixes to its PodTemplateSpec and then name it to a new rollout
 •	Clean-up the older replicaSet which is not required anymore
 ```
+### Imperative 
+kubectl create deploy mydeploy --image=nginx --dry-run -oyaml
+kubectl create deploy mydeploy --image=nginx 
+kubectl create deploy mydeploy --image=nginx --replicas=2
 ### Deployment commands
 ```sh
 kubectl decribe deploy <deployment name>
@@ -34,7 +38,7 @@ kubectl rollout history deployment <deployment name>
 ```
 ### Rollout the version from v1 to v2
 ```sh
-Edit the image and apply again the manifest
+# Edit the image and apply again the manifest
 kubectl set image deployment/nginx-deployment nginx=nginx:1.161
 ```
 ### To add a change cause
