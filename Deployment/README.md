@@ -61,4 +61,6 @@ kubectl rollout history deployment/<deployment name> --revision=2
 kubectl rollout history deployment/<deployment name> --revision=1
 ```
 ### Deployment Rollback to a specific version
+```sh
 kubectl rollout undo deployment <deployment name> --to-revision=1
+```
