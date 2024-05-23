@@ -50,6 +50,10 @@ metadata:
 ```sh
 kubectl config set-context --current --namespace=dev
 ```
+#### How to identify the current namespace
+```sh
+kubectl config get-contexts
+```
 
 #### When Should You Use Multiple Kubernetes Namespaces?
 ```sh
