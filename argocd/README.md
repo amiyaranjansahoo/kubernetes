@@ -1,3 +1,10 @@
+# Traditional CD Tool
+![image](https://github.com/amiyaranjansahoo/kubernetes/assets/24844782/ccc664cd-ab45-4f52-9259-01cc305d5a18)
+
+# ArgoCD
+![image](https://github.com/amiyaranjansahoo/kubernetes/assets/24844782/df871265-0360-40fb-9985-32cd91b97a78)
+
+
 ### First, create a namespace
 ```sh
 kubectl create namespace argocd
