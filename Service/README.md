@@ -7,3 +7,4 @@ The service resources lets you expose an application running in pods to be reach
 kubectl expose deploy/argocd-server --type=NodePort --name=<custom service name> -n <namespace name>
 kubectl expose deploy/argocd-server --type=LoadBalancer --name=<custom service name> -n <namespace name>
 ```
+apt-get update -y && apt-get install dnsutils -y
