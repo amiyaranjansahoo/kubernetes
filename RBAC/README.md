@@ -1,3 +1,8 @@
+#### What is RBAC?
+```sh
+RBAC remains a crucial component of container security.
+It allows you to define who has access to what resources in your cluster.
+```
 #### What is k8s Service Account
 ```sh
 Whenever you access your Kubernetes cluster with kubectl, you are authenticated by Kubernetes
