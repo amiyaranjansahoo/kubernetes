@@ -7,6 +7,7 @@ metadata:
 ````
 #### Create a Role
 ```sh
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: pod-creator
