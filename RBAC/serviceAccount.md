@@ -7,10 +7,10 @@ metadata:
 ````
 #### Create a Role
 ```sh
-apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: pod-creator
+  namespace: default
 rules:
 - apiGroups: [""]
   resources: ["pods"]
@@ -22,6 +22,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: pod-creator
+  namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
