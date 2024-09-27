@@ -7,7 +7,6 @@ spec:
   selector:                  
     matchExpressions:        # these must match the labels
       - {key: purpose, operator: In, values: [learning, practise , reseacrh]}
-      - {key: env, operator: NotIn, values: [production]}
   template:      
     metadata:
       name: rspod
