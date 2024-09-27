@@ -1,3 +1,44 @@
+###
+```sh
+Question 1:
+What is the purpose of a ReplicaSet in Kubernetes?
+
+A) To scale pods horizontally by adding or removing replicas based on a defined specification.
+B) To provide high availability by distributing pods across multiple nodes in a cluster.
+C) To manage rolling updates by gradually replacing existing pods with new ones.
+D) To ensure resource isolation by segregating pods into separate namespaces.
+
+Question 2:
+Which Kubernetes resource is responsible for ensuring a specified number of identical pod replicas are running concurrently?
+
+A) Deployment
+B) ReplicaSet
+C) StatefulSet
+D) PodDisruptionBudget
+
+Question 3:
+What happens if the number of replicas specified in a ReplicaSet's configuration exceeds the actual number of running pods?
+A) Kubernetes automatically scales down the number of replicas to match the configured value.
+B) Kubernetes automatically scales up the number of replicas to match the configured value.
+C) Kubernetes creates additional pods to match the configured number of replicas.
+D) Kubernetes deletes the ReplicaSet and its associated pods.
+
+Question 4:
+Which command is used to create a ReplicaSet from a YAML file in Kubernetes?
+A) kubectl create pod
+B) kubectl apply -f
+C) kubectl create replicaset
+D) kubectl run
+
+Question 5:
+What happens if a pod managed by a ReplicaSet is manually deleted?
+A) Kubernetes automatically recreates the deleted pod.
+B) The ReplicaSet scales down to match the configured number of replicas.
+C) The ReplicaSet continues to operate with fewer replicas until manually adjusted.
+D) The entire ReplicaSet is deleted along with its associated pods.
+```
+
+
 ## Login to Killerkoda account (https://killercoda.com/) or any k8s custer
 #### How many PODs exist on the system?
 ```sh
