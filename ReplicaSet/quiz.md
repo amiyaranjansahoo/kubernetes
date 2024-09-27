@@ -37,3 +37,12 @@ spec:
         image: nginx
 EOF
 ```
+
+#### How many PODs are DESIRED in the new-replica-set?
+```sh
+4
+3
+0
+2
+1
+```
