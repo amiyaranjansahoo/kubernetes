@@ -6,7 +6,7 @@ spec:
   replicas: 2  
   selector:                  
     matchExpressions:        # these must match the labels
-      - {key: purpose, operator: In, values: [learning, practise , reseacrh]}
+      - {key: env, operator: In, values: [dev, test , production]}
   template:      
     metadata:
       name: rspod
