@@ -7,7 +7,7 @@
 2
 1
 ```
-#### How many ReplicaSets exist on the system?
+#### How many ReplicaSets exist on the k8s cluster?
 ```sh
 4
 3
@@ -38,7 +38,7 @@ spec:
 EOF
 ```
 
-#### How many PODs are DESIRED in the new-replica-set?
+#### How many PODs are DESIRED in the replicaset-1?
 ```sh
 4
 3
@@ -46,3 +46,46 @@ EOF
 2
 1
 ```
+#### Run the below command and calculate no of pods
+```sh
+kubectl delete -f rs.yml
+4
+3
+0
+2
+1
+```
+#### Execute the below command, it will create a file: rs.yml
+#### Then execute the command: kubectl apply -f rs.yml
+```sh
+cat > rs.yml << EOF
+kind: ReplicaSet               
+apiVersion: apps/v1
+metadata:
+  name: myreplica
+spec:
+  replicas: 3            
+  selector:
+    matchLabels:  
+      envt: test                             
+  template:                
+    metadata:
+      name: rcpod
+      labels:            
+        envt: test
+    spec:
+     containers:
+       - name: mynginx
+         image: nginx
+         ports:
+           - containerPort: 80
+EOF
+
+How many pods are running?
+
+A) 5
+B) 2
+C) 3
+D) 4
+```
+
