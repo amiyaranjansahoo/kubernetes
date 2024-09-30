@@ -113,7 +113,7 @@ The image javahomecloud:1.22 does not exist
 Deployment is not created correctly
 Application has errors
 Kubernetes is faulty
-```sh
+```
 
 #### Run the below command 
 ```sh
@@ -153,3 +153,5 @@ Name: httpd-frontend;
 Replicas: 3;
 Image: httpd:2.4-alpine
 ```
+
+Now delete all the Deployments and verify that all pods, replcaset and deployment were deleted?
