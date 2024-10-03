@@ -34,7 +34,7 @@ b) To select the IP addresses assigned to the Service.
 c) To determine which pods the Service routes traffic to.
 d) To define the type of Service to be created.
 ```
-## LAB Section
+## LAB
 ```sh
 1. Deploy a simple Nginx web server using the Imperative approach?
 ```
