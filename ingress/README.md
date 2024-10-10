@@ -62,6 +62,7 @@ helm search repo eks/aws-load-balancer-controller --versions
 ```sh
 kubectl get deployment -n kube-system aws-load-balancer-controller
 ```
+#### For ref: https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html
 
 
 
