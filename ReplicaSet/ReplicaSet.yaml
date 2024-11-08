@@ -1,19 +1,18 @@
-kind: ReplicaSet
-apiVersion: apps/v1
+kind: ReplicationController               
+apiVersion: v1
 metadata:
-  name: rs
+  name: myreplica
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      envt: dev
-  template:
+  replicas: 2            
+  selector:        
+    envt: test                             
+  template:                
     metadata:
-      name: testpod
-      labels:
-        envt: dev
+      labels:            
+        envt: test
     spec:
-      containers:
-      - name: ubuntu
-        image: ubuntu
-        command: ["/bin/bash", "-c", "while true; do echo welcome to k8s; sleep 5 ; done"]
+     containers:
+       - name: mynginx
+         image: nginx
+         ports:
+           - containerPort: 80
