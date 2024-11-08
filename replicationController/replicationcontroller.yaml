@@ -8,7 +8,6 @@ spec:
     envt: test                             
   template:                
     metadata:
-      name: rcpod
       labels:            
         envt: test
     spec:
