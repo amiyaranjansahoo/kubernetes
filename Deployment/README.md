@@ -1,14 +1,10 @@
 ### Deployment
 ```sh
-•	Replication controller Replica set is not able to do update and rollback apps in the cluster.
-•	A deployment object acts as a supervisor for pods, giving you fine-grained control over how
-        and when a new pod is rolled out, updated or rolled back to a previous state.
-•	When using the deployment object, we first define the state of the app, then k8s cluster
-       schedules mentioned app instances onto specific individual nodes.
-•	A deployment provides declarative updates for pods and replicaset.
-•	k8s then monitors, if the node hosting an instance goes down or pod is deleted then the
-       deployment controller replaces it.
-•	This provides a self-healing mechanism to address machine failure or maintenance.
+Replication controller Replica set is not able to do update and rollback apps in the cluster.
+A deployment object acts as a supervisor for pods, giving you fine-grained control over how and when a new pod is rolled out, updated or rolled back to a previous state.
+A deployment provides declarative updates for pods and replicaset.
+k8s then monitors, if the node hosting an instance goes down or pod is deleted then the deployment controller replaces it.
+This provides a self-healing mechanism to address machine failure or maintenance.
 ```
 ### Deployment Use Case
 ```sh
