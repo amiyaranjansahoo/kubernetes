@@ -48,7 +48,7 @@ spec:
     spec:
       containers:
       - name: javahome
-        image: nginx:1.22
+        image: javahomecloud:1.22
         ports:
         - containerPort: 80
 EOF
