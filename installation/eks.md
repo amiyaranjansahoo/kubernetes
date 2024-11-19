@@ -116,8 +116,12 @@ rm eksctl_$PLATFORM.zip
 
 ### Provision an EKS Cluster
 ```sh
-Provision an EKS cluster with three worker nodes in us-east-1:
-eksctl create cluster --name dev --region us-east-1 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --managed
+# Provision an EKS cluster with two worker nodes in us-east-1:
+eksctl create cluster --name dev --region us-east-1 --nodegroup-name standard-workers --node-type t3.medium --nodes 2 --nodes-min 1 --nodes-max 4 --managed
+
+eksctl get cluster
+# Enable it to connect to our cluster:
+aws eks update-kubeconfig --name dev --region us-east-1
 
 If your EKS resources can't be deployed due to AWS capacity issues, delete your eksctl-dev-cluster CloudFormation stack and retry the command using the --zones parameter and suggested availability zones from the CREATE_FAILED message:
 
