@@ -69,3 +69,18 @@ spec:
           cpu: "2"      # Exceeds max CPU (1)
           memory: "2Gi" # Exceeds max memory (1Gi)
 ```
+#### ResourceQuota
+```sh
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: namespace-quota
+  namespace: default
+spec:
+  hard:
+    requests.cpu: "10"
+    requests.memory: "20Gi"
+    limits.cpu: "20"
+    limits.memory: "40Gi"
+    pods: "1"
+```
