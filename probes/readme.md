@@ -1,10 +1,9 @@
 ## k8s probes
 ```sh
-•	It’s all about to track/monitor the status of the application deploy inside the container.
-•	In order to verify if a container in a POD is healthy and ready to serve traffic,
-kuberenets provides for a range of health checking mechanism
-•	Health checks or probes are carried out by the kubelet to determine when to restart/recreate a container
-(for liveness probe) and used by services and deployments to determine if a POD should receive traffic.
+1. In Kubernetes, a probe is a diagnostic mechanism used by the kubelet to check the health and state of a container.
+2. k8s Probes performes the health checks at regular intervals. 
+3. There are three main types of probes in Kubernetes: Liveness Probe, Readiness Probe, and Startup Probe. 
+4. Each serves a different purpose and helps ensure that applications run smoothly and efficiently within a Kubernetes cluster.
 ```
 
 #### liveness probes
