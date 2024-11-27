@@ -1,4 +1,4 @@
-### Launch ec2 ubuntu t2-medium(2 CPU 4 GB RAM )
+### Launch ec2 Amazon Linux t2-medium(2 CPU 4 GB RAM )
 
 # Download and Install kubectl
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/kubectl
