@@ -36,7 +36,7 @@ d) To define the type of Service to be created.
 ```
 ## LAB
 ```sh
-1. Deploy a simple Nginx web server using the Imperative approach?
+1. Deploy a simple Nginx web server as a deployment using the Imperative approach?
 ```
 ```sh
 2. Verify the pod running? Verify the name of the pod, ReplicaSet and Deployment
