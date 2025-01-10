@@ -24,10 +24,12 @@ d.	1.30
 a.	eksctl
 b.	kubectl
 c.	kops
-```
 d.	None of the above
-5.	How many master and worker nodes would be required to manage the k8s cluster in production environment?
+```
+### 5.	How many master and worker nodes would be required to manage the k8s cluster in production environment?
+```sh
 a.	Single Master
 b.	Single Master – Single Worker
 c.	Single Master – Multiple Worker
 d.	Multiple Master – Multiple Worker
+```
