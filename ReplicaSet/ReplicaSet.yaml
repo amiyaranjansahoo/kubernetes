@@ -1,4 +1,4 @@
-kind: ReplicationController               
+kind: ReplicaSet               
 apiVersion: v1
 metadata:
   name: myreplica
