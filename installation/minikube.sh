@@ -16,7 +16,7 @@ kubectl version --short --client
 
 # Download and Install docker
 # Login as ec2-user)
-sudo yum install docker
+sudo yum install docker -y
 docker version 
 sudo service docker start
 sudo systemctl enable docker
