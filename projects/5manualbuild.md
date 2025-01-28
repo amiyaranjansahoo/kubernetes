@@ -2,6 +2,8 @@
 ###### Launch EC2 with atleast 2 CPU and 4 GB RAM.
 ###### Install the jdk 17: java-17-amazon-corretto-devel 
 ###### Install and configure the path for maven
+###### Install git
+###### Install docker
 ###### Clone the project from github.
 ```sh
 https://github.com/amiyaranjansahoo/javahome-k8s-project.git
