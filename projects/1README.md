@@ -35,6 +35,14 @@ export PATH
 # Git Installation
 sudo yum install git -y
 
+# docker installation
+sudo yum install docker -y
+sudo service docker start
+sudo systemctl enable docker
+sudo usermod -G docker ec2-user 
+# Logout of the screen and login again
+docker image ls
+
 # Clone the project
 git clone https://github.com/amiyaranjansahoo/javahome-k8s-project.git
 
