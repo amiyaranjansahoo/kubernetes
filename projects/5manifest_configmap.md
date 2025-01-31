@@ -137,3 +137,14 @@ data:
 ```sh
 http://3.231.149.112:31231/usermgmt/health-status
 ```
+#### Executing the SQL Query in side the k8s container as a configmap 
+```sh
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: usermanagement-dbcreation-script
+data: 
+  mysql_usermgmt.sql: |-
+    DROP DATABASE IF EXISTS usermgmt;
+    CREATE DATABASE usermgmt;
+```
