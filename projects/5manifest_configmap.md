@@ -2,7 +2,7 @@
 ```sh
 
 #### Add IAM role to workernode policy
-
+```
 #### Install EBS Driver:
 ```sh
 wget https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
@@ -16,6 +16,7 @@ helm repo update
 helm upgrade --install aws-ebs-csi-driver \
     --namespace kube-system \
     aws-ebs-csi-driver/aws-ebs-csi-driver
+```
 #### Deploy the storage class, sql deployment and None Service
 ```sh
 ---
