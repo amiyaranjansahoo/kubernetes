@@ -1,4 +1,21 @@
 ## Implementing the configMap
+```sh
+
+#### Add IAM role to workernode policy
+
+#### Install EBS Driver:
+```sh
+wget https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
+tar -xzf helm-v3.12.3-linux-amd64.tar.gz
+sudo mv ./linux-amd64/helm /usr/local/bin/
+helm
+# Add the aws-ebs-csi-driver Helm repository.
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+helm repo update
+# Install the latest release of the driver.
+helm upgrade --install aws-ebs-csi-driver \
+    --namespace kube-system \
+    aws-ebs-csi-driver/aws-ebs-csi-driver
 #### Deploy the storage class, sql deployment and None Service
 ```sh
 ---
