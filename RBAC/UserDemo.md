@@ -24,16 +24,16 @@ kubectl config set-context appuser-context --cluster=kubernetes --user=appuser
 ```
 #### Creating the  Namespace:
 ```sh
-kubectl create ns dev-ns
+kubectl create ns dev
 ```
 #### Creating a Pod
 ```sh
-kubectl run nginx-pod --image=nginx -n dev-ns
-kubectl get pods -n dev-ns
+kubectl run nginx-pod --image=nginx -n dev
+kubectl get pods -n dev
 ```
 #### Test Before Deploying
 ```sh
-kubectl get pods -n dev-ns --user=appuser
+kubectl get pods -n dev --user=appuser
 ```
 ### Creating the "Role" & "RoleBinding":
 #### Creating the "Role" :
@@ -41,7 +41,7 @@ kubectl get pods -n dev-ns --user=appuser
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  namespace: dev-ns
+  namespace: dev
   name: pod-reader
 rules:
 - apiGroups: [""] 
@@ -54,7 +54,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: read-pods
-  namespace: dev-ns
+  namespace: dev
 subjects:
 - kind: User
   name: appuser 
@@ -66,20 +66,20 @@ roleRef:
 ```
 #### Display Role and RoleBinding:
 ```sh
-kubectl get role -n dev-ns
-kubectl get rolebinding -n dev-ns
-kubectl describe role -n dev-ns
-kubectl describe rolebinding -n dev-ns
+kubectl get role -n dev
+kubectl get rolebinding -n dev
+kubectl describe role -n dev
+kubectl describe rolebinding -n dev
 ```
 ### Testing RBAC
 ```sh
-kubectl auth can-i get pods -n dev-ns --user=appuser
-kubectl auth can-i list pods -n dev-ns --user=appuser
+kubectl auth can-i get pods -n dev --user=appuser
+kubectl auth can-i list pods -n dev --user=appuser
 
-kubectl get pod nginx-pod -n dev-ns --user=appuser
-kubectl get pods -n dev-ns --user=appuser
+kubectl get pod nginx-pod -n dev --user=appuser
+kubectl get pods -n dev --user=appuser
 ```
 #### Negative scenario: Delete the pod from the user appuser
 ```sh
-kubectl delete pod nginx-pod -n dev-ns --user=appuser
+kubectl delete pod nginx-pod -n dev --user=appuser
 ```
