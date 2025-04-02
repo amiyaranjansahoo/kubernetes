@@ -104,6 +104,59 @@ mysql> exit
 ```
 
 ## Step-06: Deploy User Management Microservice and Test
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermgmt-microservice
+  labels:
+    app: usermgmt-restapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usermgmt-restapp
+  template:
+    metadata:
+      labels:
+        app: usermgmt-restapp
+    spec:
+      containers:
+        - name: usermgmt-restapp
+          image: amiyaranjansahoo/microsvc:v1
+          ports:
+            - containerPort: 8095
+          envFrom:
+            - configMapRef:
+                name: myconfigmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: usermgmt-restapp-service
+  labels:
+    app: usermgmt-restapp
+spec:
+  type: NodePort
+  selector:
+    app: usermgmt-restapp
+  ports:
+    - port: 8095 # When access using the LB (service type), please use port =>  http://LBDNS:8095
+      targetPort: 8095
+      nodePort: 31231
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: myconfigmap
+data:
+  # Configuration values can be set as key-value properties
+  DB_HOSTNAME: mysql
+  DB_PORT: "3306"
+  DB_NAME: usermgmt
+  DB_USERNAME: dbadmin
+  DB_PASSWORD: dbpassword11
+```
 ```
 # Deploy all Manifests
 kubectl apply -f kube-manifests/
