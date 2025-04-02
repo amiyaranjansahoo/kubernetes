@@ -158,8 +158,8 @@ data:
   DB_PASSWORD: dbpassword11
 ```
 ```
-# Deploy all Manifests
-kubectl apply -f kube-manifests/
+# Deploy the Manifests
+kubectl apply -f 
 
 # List Pods
 kubectl get pods
@@ -179,7 +179,7 @@ http://<Worker-Node-Public-Ip>:31231/usermgmt/health-status
 ## Step-08: Clean Up 
 ```
 # Delete all Objects created
-kubectl delete -f kube-manifests/
+kubectl delete -f 
 
 # Verify current Kubernetes Objects
 kubectl get all
