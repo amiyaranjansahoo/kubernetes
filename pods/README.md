@@ -1,5 +1,11 @@
 # Kubernetes Pods - Commands 
 ## Creating a Pod
+```sh
+kind:
+apiVersion:
+metadata:
+spec:
+```
 ### Create pod.yml with following content
 Get the file [(pod.yml)](https://github.com/javahometech/kubernetes/blob/master/pods/pods.yml)
 ```
