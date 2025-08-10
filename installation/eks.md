@@ -18,7 +18,7 @@ Click Next: Tags > Next: Review.
 Click Create user.
 Copy the access key ID and secret access key, and paste them into a text file, as we'll need them in the next step.
 ```
-### Launch an EC2 Instance and Configure the Command Line Tools
+### Launch an EC2 Instance(Operator node) and Configure the Command Line Tools
 ```sh
 Navigate to EC2 > Instances.
 Click Launch Instance.
