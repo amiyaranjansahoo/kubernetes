@@ -33,6 +33,7 @@ CMD ["/root/RnD/tomcat9/bin/catalina.sh","run"]
 ```sh
 https://github.com/amiyaranjansahoo/javahome-k8s-project.git
 ```
+###### Build the project using the maven
 
 ###### Build the dockerimage from the Dockerfile:
 ```sh
@@ -83,6 +84,9 @@ docker image ls
 
 # Clone the project
 git clone https://github.com/amiyaranjansahoo/javahome-k8s-project.git
+
+ # Build the project using the maven
+mvn clean package
 
 # Docker build
 FROM openjdk:8-jdk-alpine
