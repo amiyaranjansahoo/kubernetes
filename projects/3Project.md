@@ -89,7 +89,8 @@ git clone https://github.com/amiyaranjansahoo/javahome-k8s-project.git
 mvn clean package
 
 # Docker build
-FROM openjdk:8-jdk-alpine
+FROM alpine:3.14.1
+RUN apk add openjdk8
 VOLUME /tmp
 EXPOSE 8095
 ADD target/*.jar app.jar
