@@ -164,3 +164,50 @@ data:
 ```sh
 http://34.228.245.72:31231/usermgmt/health-status
 ```
+##
+```sh
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermgmt-microservice
+  labels:
+    app: usermgmt-restapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usermgmt-restapp
+  template:
+    metadata:
+      labels:
+        app: usermgmt-restapp
+    spec:
+      containers:
+        - name: usermgmt-restapp
+          image: amiyaranjansahoo/microsvc:v1
+          ports:
+            - containerPort: 8095
+          envFrom:
+            - configMapRef:
+                name: myconfigmap
+            - secretRef:
+                name: mysecret
+          command: ["/bin/sh","-c","touch /tmp/healthy; sleep 1000"]
+          livenessProbe:
+            exec:
+              command: ["/bin/sh","-c","cat /tmp/healthy"]
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /usermgmt/health-status
+              port: 8095
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /usermgmt/health-status
+              port: 8095
+            initialDelaySeconds: 60
+            periodSeconds: 10
+```
