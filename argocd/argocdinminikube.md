@@ -1,0 +1,56 @@
+### First, create a namespace
+```sh
+kubectl create namespace argocd
+```
+
+### Let's apply the yaml configuration files for ArgoCd:
+```sh
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Verify all the pods RUNNING
+kubectl get po -n argocd
+
+
+
+# Port-forward the ArgoCD server service
+kubectl port-forward svc/argocd-server -n argocd 8080:443 --address 0.0.0.0
+
+# Now you can access it via:
+https://<ec2-public-ip>:8080
+
+# Fetching the intial admin password
+kubectl get secret -n argocd
+kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
+echo "" | base64 --decode
+```
+
+
+### Fetch the eks end point
+aws eks describe-cluster --name dev --query "cluster.endpoint"
+
+### Install argocd CLI
+```sh
+# Login as root
+sudo curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo chmod +x /usr/local/bin/argocd
+
+# Login to argocd 
+argocd login <argocdip>:<port> #argocd login 3.236.82.139:32525
+
+# List all clusters contexts and  Adding the k8s cluster to argocd
+kubectl config get-contexts -o name
+argocd cluster add <k8s context arn>
+
+# Modify the conext 
+kubectl config set-context --current --namespace=argocd
+
+# Create the application using the following command
+
+argocd app create myapp --repo <git repo name> --path . --revision master --dest-server <EKS cluster end point>
+--dest-namespace default
+
+# argocd app create appl --repo https://github.com/amiyaranjansahoo/argocd-test.git --path guestbook --revision main --dest-server "https://692559FE724B8F755610973B07FBC165.gr7.us-east-1.eks.amazonaws.com" --dest-namespace default
+
+# argocd app create myapp --repo https://github.com/amiyaranjansahoo/argocd-test.git --path . --revision master
+--dest-server https://05E04E5DBEC80B1A4659C5E69FBB50D0.gr7.us-east-1.eks.amazonaws.com --dest-namespace default
+example repo: https://github.com/argoproj/argocd-example-apps.git
