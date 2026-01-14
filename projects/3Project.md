@@ -63,9 +63,9 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urando
 sudo yum install java-17-amazon-corretto-devel -y
 
 # Maven Installation
-wget https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
-tar -zxvf apache-maven-3.9.11-bin.tar.gz
-sudo mv apache-maven-3.9.11 /usr/local/bin/maven
+wget https://dlcdn.apache.org/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz
+tar -zxvf apache-maven-3.9.12-bin.tar.gz
+sudo mv apache-maven-3.9.12 /usr/local/bin/maven
 mvn_home=/usr/local/bin/maven/bin
 PATH=${PATH}:${mvn_home}
 export PATH
